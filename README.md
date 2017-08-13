@@ -154,3 +154,7 @@ test: go to url:port and enter a message, open console, should see authenticatio
 edit application.html.erb template (take out guard line for lesson 2) -- add guardian line
 ```
 test: go to url:port and enter a message, should receive message.
+
+
+
+### Special thanks to Fabio Akita at http://www.akitaonrails.com/ for the blog post on the pusher clone
