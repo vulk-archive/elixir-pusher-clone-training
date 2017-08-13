@@ -3,13 +3,13 @@
 Lesson 1, Setup Overview
 -------------------------
 
-node
+kvm install for node
 
-ruby/rails
+rvm install for ruby/rails
 
-erlang
+kerl install for erlang
 
-elixir
+kiex install for elixir
 
 test: iex
 
