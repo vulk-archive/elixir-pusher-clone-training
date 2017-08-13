@@ -4,8 +4,11 @@ Lesson 1, Setup Overview
 -------------------------
 
 node
+
 ruby/rails
+
 erlang
+
 elixir
 
 test: iex
@@ -108,6 +111,7 @@ Lesson 4
 ### rails
 
 http://nandovieira.com/using-es2015-with-asset-pipeline-on-ruby-on-rails
+
 https://github.com/rails/sprockets/issues/156
 ```
 copy app/assets/config/manifest.js
