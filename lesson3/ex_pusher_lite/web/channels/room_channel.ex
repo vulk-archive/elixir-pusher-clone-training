@@ -7,11 +7,7 @@ defmodule ExPusherLite.RoomChannel do
   end
 
   def join(topic, _resource, socket) do
-    if permitted_topic?(socket, :listen, topic) do
-      { :ok, %{ message: "Joined" }, socket }
-    else
-      { :error, :authentication_required }
-    end
+    { :ok, %{ message: "Joined" }, socket }
   end
 
   def join(_room, _payload, _socket) do
@@ -24,20 +20,8 @@ defmodule ExPusherLite.RoomChannel do
   end
 
   def handle_in(topic_event, payload, socket) do
-    if permitted_topic?(socket, :publish, socket.topic) do
       broadcast socket, topic_event, payload
       { :noreply, socket }
-    else
-      { :reply, :error, socket }
-    end
   end
 
-  def permitted_topic?(socket, claim_key, topic) do
-    claims           = Guardian.Phoenix.Socket.current_claims(socket)
-    permitted_topics = claims[claim_key] || []
-    Enum.any?(permitted_topics, fn permitted_topic ->
-      pattern = String.replace(permitted_topic, ":*", ":.*")
-      Regex.match?(~r/\A#{pattern}\z/, topic)
-    end)
-  end
 end

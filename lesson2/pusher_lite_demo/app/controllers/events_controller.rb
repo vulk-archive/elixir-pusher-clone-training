@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   def create
-    # SendEventsJob.perform_later(event_params)
     render :json => {:error => 'nope'}
   end
 

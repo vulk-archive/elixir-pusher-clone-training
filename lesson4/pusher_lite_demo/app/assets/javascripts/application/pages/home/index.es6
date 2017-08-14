@@ -8,8 +8,8 @@ export default class Index {
   setup() {
     // add event listeners
     console.log('-> Setting up Pusher Lite socket')
-    let guardianToken = $("meta[name=guardian-token]").attr("content")
-    let csrfToken     = $("meta[name=guardian-csrf]").attr("content")
+    // let guardianToken = $("meta[name=guardian-token]").attr("content")
+    // let csrfToken     = $("meta[name=guardian-csrf]").attr("content")
 
     let pusherHost    = $("meta[name=pusher_host]").attr("content")
    // let pusherApp     = $("meta[name=pusher_app_id]").attr("content")
@@ -17,7 +17,7 @@ export default class Index {
     let pusherChannel = $("meta[name=pusher_channel]").attr("content")
 
     let socket = new Socket(`ws://${pusherHost}/socket`, {
-      params: { guardian_token: guardianToken, csrf_token: csrfToken }
+      // params: { guardian_token: guardianToken, csrf_token: csrfToken }
     })
     socket.connect()
 
@@ -43,17 +43,4 @@ export default class Index {
     console.log('-> perform initial actions')
   }
 
-  setupPusher() {
-    let pusherKey = $("meta[name=pusher_key]").attr("content")
-    let pusher = new Pusher(pusherKey, { encrypted: true })
-
-    let pusherChannel = $("meta[name=pusher_channel]").attr("content")
-    let channel = pusher.subscribe(pusherChannel)
-  
-    channel.bind('new_message', data => {
-      var new_line = `<p><strong>${data.name}<strong>: ${data.message}</p>`
-      $(".message-receiver").append(new_line)
-    })
-
-  }
 }

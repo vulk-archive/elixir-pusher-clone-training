@@ -3,16 +3,55 @@
 Lesson 1, Setup Overview
 -------------------------
 
-kvm install for node
 
-rvm install for ruby/rails
+git clone git@github.com:vulk/elixir-pusher-clone-training.git
 
-kerl install for erlang
+-- check node
+-- phoenix dependency
+```
+nvm list
+```
 
-kiex install for elixir
+-- check ruby
+```
+rvm list
+```
 
-test: iex
+-- switch version of ruby
+```
+rvm 2.2.3
+```
 
+-- check rails
+```
+rails -v
+```
+
+-- check erlang
+```
+kerl list builds
+```
+
+-- switch version erlang
+```
+kerl install 18.0
+. <yourworkingdirectory>/activate
+```
+
+check elixir
+```
+--kiex list
+```
+
+-- switch version of elixir
+```
+kiex use 1.4.5
+```
+
+test:
+```
+iex
+```
 ---------------
 Lesson 2
 ---------------
@@ -22,62 +61,67 @@ rails -v
 rails 4.2.5
 rails new
 copy gemfile
-bundle
-rails g controller home
+
+### for issues with gemfile see
 ```
 https://github.com/rails/sprockets-rails/issues/291
 
 ```
-copy home.rb controller
+
+bundle update
+copy app/models/pusher_event.rb model
+rails g controller home
+copy app/controllers/home_controller.rb controller
 rails g controller events
-copy events.rb controller contents
-copy application.html.erb template
-copy index.html.erb template
-copy create.js.erb temmplate
-copy app/assets/stylesheets/application.scss css 
-copy app/assets/stylesheets/purecss.scss css
+copy app/controllers/events_controller.rb controller contents
+copy views/layouts/application.html.erb template
+copy app/views/home/index.html.erb template
+copy app/views/events/create.js.erb temmplate
 delete app/assets/stylesheets/application.css  
+delete app/assets/stylesheets/events.scss  
+delete app/assets/stylesheets/home.css  
+copy app/assets/stylesheets/purecss.scss styles 
+copy app/assets/stylesheets/application.scss styles 
+copy .env.example into .env 
 setup .env file
 copy .gitignore
-setup initializer
 copy pusher_lite_demo/config/initializers/assets.rb
 copy pusher_lite_demo/config/initializers/pusher_lite.rb
 copy pusher_lite_demo/config/routes.rb
-delete .coffeescripts
-. .env; ^Cils s -p $PORT -b 0.0.0.0 
+delete app/assets/javascripts/events.coffee
+delete app/assets/javascripts/home.coffee
+
+. .env; rails s -p $PORT -b 0.0.0.0 
 ```
 
 ----------
 Lesson 3 
 ----------
 
-```
-kerl install 18.0
-. /home/pair/src/watson/pusher-clone/activate
-erl -v <check if version 18.0>
-kiex use 1.4.5
-iex <checking if elixir works>
-```
+cd into your main training directory
+
 ### elixir
 ```
+*try mix phoenix.new ex_pusher_lite
 mix new ex_pusher_lite
-copy .gitignore
 cd ex_pusher_lite
+copy .gitignore
 copy mix.exs
 mix do deps.get, compile
 copy config.exs
 copy dev.exs
-create/copy dev.secret.exs
+create/copy dev.secret.exs <copy just the repo config>
 ```
 
 https://hexdocs.pm/phoenix/mix_tasks.html
 
 ```
 mkdir web directory
-mdir web/controller directory
-copy web/controllerevents_controller.ex controller
+mkdir web/controller directory
+copy web/controller/events_controller.ex controller
 copy web/router.ex router
 copy web/gettext.ex
+copy web/web.ex
 
 mix compile
 
@@ -86,8 +130,8 @@ copy lib/ex_pusher_lite.ex supervisor
 
 mix compile
 
-copy room_channel.ex channel 
-copy user_socket.ex socket
+copy web/channels/room_channel.ex channel 
+copy web/channels/user_socket.ex socket
 copy lib/ex_pusher_lite/repo.ex
 ```
 
@@ -95,9 +139,9 @@ copy lib/ex_pusher_lite/repo.ex
 
 ```
 edit /config/secrets.yml
-edit pusher_event.rb model (add net http call)
+edit app/models/pusher_event.rb model (add net http call)
 mkdir app/jobs
-copy send_events_job.rb job
+copy app/jobs/send_events_job.rb job
 edit events controller: add job call
 
 . .env; PORT=4503 iex -S mix phoenix.server 
@@ -120,6 +164,7 @@ copy app/assets/javascripts/application/boot.es6
 copy app/assets/javascripts/application/pages/home/index.es6 
 edit app/assets/javascripts/application.js
 copy config/initializers/babel.rb
+edit Gemfile <include new sprocket code> 
 ```
 test: go to url:port and enter a message, should receive message on the same screen with anyone connected to your url
 
@@ -129,8 +174,8 @@ lesson 5, JWT Authorization
 ### rails
 ```
 copy app/helpers/guardian_helper.rb helper
-edit pusher_event.rb model
-edit application.html.erb template
+edit app/models/pusher_event.rb model
+edit app/assets/javascripts/application/pages/home/index.es6 <uncomment guardian code>
 ```
 ### elixir
 ```
@@ -147,11 +192,11 @@ mix compile
 edit events_controller.ex controller
 edit user_socket.ex socket
 edit room_channel.ex channel (take out guardian line in for lesson 3)
-ex_pusher_lite/lib/ex_pusher_lite/guardian_serializer.ex
+copy ex_pusher_lite/lib/ex_pusher_lite/guardian_serializer.ex
 ```
 test: go to url:port and enter a message, open console, should see authentication error.
 ```
-edit application.html.erb template (take out guard line for lesson 2) -- add guardian line
+edit (rails) app/views/layouts/application.html.erb template (take out guard line for lesson 2) -- add guardian line
 ```
 test: go to url:port and enter a message, should receive message.
 
