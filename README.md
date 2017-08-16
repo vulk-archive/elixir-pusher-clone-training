@@ -1,8 +1,12 @@
 # elixir-pusher-clone-training
 ------------------------
+Prerequisites
+------------------------
+### See https://gist.github.com/wavell/0411d52a69f03546f712b47596dd5ca4
+
+------------------------
 Lesson 1, Setup Overview
 -------------------------
-
 
 git clone git@github.com:vulk/elixir-pusher-clone-training.git
 
