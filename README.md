@@ -10,6 +10,7 @@ git clone git@github.com:vulk/elixir-pusher-clone-training.git
 -- phoenix dependency
 ```
 nvm list
+nvm use v6.0.0
 ```
 
 -- check ruby
@@ -19,10 +20,10 @@ rvm list
 
 -- switch version of ruby
 ```
-rvm 2.2.3
+rvm use 2.2.3
 ```
 
--- check rails
+-- check rails -- use rails 4.2.5
 ```
 rails -v
 ```
@@ -40,7 +41,7 @@ kerl install 18.0
 
 check elixir
 ```
---kiex list
+kiex list
 ```
 
 -- switch version of elixir
@@ -57,9 +58,7 @@ Lesson 2
 ---------------
 
 ```
-rails -v
-rails 4.2.5
-rails new
+rails new pusher_lite_demo
 copy gemfile
 
 ### for issues with gemfile see
@@ -93,6 +92,7 @@ delete app/assets/javascripts/home.coffee
 
 . .env; rails s -p $PORT -b 0.0.0.0 
 ```
+test: go to url:port and enter a message, check rails log
 
 ----------
 Lesson 3 
@@ -102,37 +102,24 @@ cd into your main training directory
 
 ### elixir
 ```
-*try mix phoenix.new ex_pusher_lite
-mix new ex_pusher_lite
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+mix phoenix.new ex_pusher_lite --no-brunch --no-ecto
 cd ex_pusher_lite
 copy .gitignore
 copy mix.exs
 mix do deps.get, compile
-copy config.exs
-copy dev.exs
-create/copy dev.secret.exs <copy just the repo config>
+copy dev.exs 
 ```
 
 https://hexdocs.pm/phoenix/mix_tasks.html
 
 ```
-mkdir web directory
-mkdir web/controller directory
+mix phoenix.gen.json Events events --no-context --no-model --no-schema
 copy web/controller/events_controller.ex controller
 copy web/router.ex router
-copy web/gettext.ex
-copy web/web.ex
-
-mix compile
-
-copy lib/ex_pusher_lite/endpoint.ex socket configuration
-copy lib/ex_pusher_lite.ex supervisor
-
-mix compile
-
-copy web/channels/room_channel.ex channel 
+mix phoenix.gen.channel Room 
 copy web/channels/user_socket.ex socket
-copy lib/ex_pusher_lite/repo.ex
+mix compile
 ```
 
 ### rails
@@ -140,9 +127,9 @@ copy lib/ex_pusher_lite/repo.ex
 ```
 edit /config/secrets.yml
 edit app/models/pusher_event.rb model (add net http call)
-mkdir app/jobs
+rails g job send_events 
 copy app/jobs/send_events_job.rb job
-edit events controller: add job call
+edit web/controller/events_controller.ex controller
 
 . .env; PORT=4503 iex -S mix phoenix.server 
 . .env; rails s -p $PORT -b 0.0.0.0
@@ -162,9 +149,10 @@ copy app/assets/config/manifest.js
 copy app/assets/javascripts/phoenix.es6
 copy app/assets/javascripts/application/boot.es6
 copy app/assets/javascripts/application/pages/home/index.es6 
-edit app/assets/javascripts/application.js
+edit app/assets/javascripts/application.js << redundant, but need this 
 copy config/initializers/babel.rb
 edit Gemfile <include new sprocket code> 
+bundle update
 ```
 test: go to url:port and enter a message, should receive message on the same screen with anyone connected to your url
 
@@ -173,6 +161,7 @@ lesson 5, JWT Authorization
 ---------
 ### rails
 ```
+rails g helper guardian
 copy app/helpers/guardian_helper.rb helper
 edit app/models/pusher_event.rb model
 edit app/assets/javascripts/application/pages/home/index.es6 <uncomment guardian code>
@@ -181,17 +170,15 @@ edit app/assets/javascripts/application/pages/home/index.es6 <uncomment guardian
 ```
 edit mix.exs
 edit config.exs
-edit dev.secret.exs
+edit dev.exs << add import config
+edit dev.secret.exs << remove repo lines
 
 mix do deps.get, compile
 
 edit router.ex router
-
-mix compile
-
 edit events_controller.ex controller
 edit user_socket.ex socket
-edit room_channel.ex channel (take out guardian line in for lesson 3)
+edit room_channel.ex channel 
 copy ex_pusher_lite/lib/ex_pusher_lite/guardian_serializer.ex
 ```
 test: go to url:port and enter a message, open console, should see authentication error.

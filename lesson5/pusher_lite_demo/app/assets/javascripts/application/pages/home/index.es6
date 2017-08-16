@@ -43,17 +43,4 @@ export default class Index {
     console.log('-> perform initial actions')
   }
 
-  setupPusher() {
-    let pusherKey = $("meta[name=pusher_key]").attr("content")
-    let pusher = new Pusher(pusherKey, { encrypted: true })
-
-    let pusherChannel = $("meta[name=pusher_channel]").attr("content")
-    let channel = pusher.subscribe(pusherChannel)
-  
-    channel.bind('new_message', data => {
-      var new_line = `<p><strong>${data.name}<strong>: ${data.message}</p>`
-      $(".message-receiver").append(new_line)
-    })
-
-  }
 }

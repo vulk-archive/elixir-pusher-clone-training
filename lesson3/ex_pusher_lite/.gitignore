@@ -31,8 +31,6 @@ uploads
 # dont include compiled lib subdirectories but *do* include bling files 
 .env
 /tmp
-#too big to include, use the tar file
-bidlily.sql
 # keep secrets out
 /config/dev.secret.exs
 /config/test.secret.exs
