@@ -63,7 +63,7 @@ copy gemfile
 
 
 ```
-### for issues with gemfile see
+### For issues with gemfile see
 https://github.com/rails/sprockets-rails/issues/291
 
 ```
