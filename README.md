@@ -2,7 +2,7 @@
 ------------------------
 Prerequisites
 ------------------------
-### See https://gist.github.com/wavell/0411d52a69f03546f712b47596dd5ca4
+See https://gist.github.com/wavell/0411d52a69f03546f712b47596dd5ca4
 
 ------------------------
 Lesson 1, Setup Overview
