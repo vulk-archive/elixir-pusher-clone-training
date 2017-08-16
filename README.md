@@ -61,8 +61,9 @@ Lesson 2
 rails new pusher_lite_demo
 copy gemfile
 
-### for issues with gemfile see
+
 ```
+### for issues with gemfile see
 https://github.com/rails/sprockets-rails/issues/291
 
 ```
