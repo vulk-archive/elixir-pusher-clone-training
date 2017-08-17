@@ -1,5 +1,13 @@
 # elixir-pusher-clone-training
 ------------------------
+Useful comparisons
+------------------------
+https://hexdocs.pm/phoenix/channels.html
+https://github.com/dsander/phoenix-connection-benchmark
+https://pusher.com/pricing
+https://www.digitalocean.com/pricing/
+
+------------------------
 Prerequisites
 ------------------------
 See https://gist.github.com/wavell/0411d52a69f03546f712b47596dd5ca4
@@ -114,14 +122,16 @@ copy .gitignore
 copy mix.exs
 mix do deps.get, compile
 copy dev.exs 
+
 ```
+-- List of mix tasks
 
 https://hexdocs.pm/phoenix/mix_tasks.html
 
 ```
 mix phoenix.gen.json Events events --no-context --no-model --no-schema
 copy web/controller/events_controller.ex controller
-copy web/router.ex router
+copy web/router.ex router  
 mix phoenix.gen.channel Room 
 copy web/channels/user_socket.ex socket
 mix compile
@@ -130,6 +140,7 @@ mix compile
 ### rails
 
 ```
+cd into your rails directory
 edit /config/secrets.yml
 edit app/models/pusher_event.rb model (add net http call)
 rails g job send_events 
@@ -180,15 +191,16 @@ edit dev.secret.exs << remove repo lines
 
 mix do deps.get, compile
 
-edit router.ex router
+edit router.ex router  << try adding guardian pipeline to events
 edit events_controller.ex controller
 edit user_socket.ex socket
 edit room_channel.ex channel 
 copy ex_pusher_lite/lib/ex_pusher_lite/guardian_serializer.ex
+restart phoenix and rails
 ```
 test: go to url:port and enter a message, open console, should see authentication error.
 ```
-edit (rails) app/views/layouts/application.html.erb template (take out guard line for lesson 2) -- add guardian line
+edit (rails) app/views/layouts/application.html.erb template -- add guardian line
 ```
 test: go to url:port and enter a message, should receive message.
 

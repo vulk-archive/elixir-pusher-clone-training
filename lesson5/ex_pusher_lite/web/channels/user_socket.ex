@@ -4,6 +4,7 @@ defmodule ExPusherLite.UserSocket do
   use Guardian.Phoenix.Socket
 
   ## Channels
+  # channel "room:*", ExPusherLite.RoomChannel
   channel "*", ExPusherLite.RoomChannel
 
   ## Transports
