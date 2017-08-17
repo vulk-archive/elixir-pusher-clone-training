@@ -37,8 +37,7 @@ rvm use 2.2.3
 
 -- check rails -- use rails 4.2.5
 ```
-rails -v
-```
+rails -v ```
 
 -- check erlang
 ```
@@ -65,7 +64,7 @@ test:
 ```
 iex
 ```
----------------
+--------------- 
 Lesson 2
 ---------------
 
@@ -95,7 +94,6 @@ delete app/assets/stylesheets/home.css
 copy app/assets/stylesheets/purecss.scss styles 
 copy app/assets/stylesheets/application.scss styles 
 copy .env.example into .env 
-setup .env file
 copy .gitignore
 copy pusher_lite_demo/config/initializers/assets.rb
 copy pusher_lite_demo/config/initializers/pusher_lite.rb
@@ -114,6 +112,7 @@ Lesson 3
 cd into your main training directory
 
 ### elixir
+Go to main directory (up one)
 ```
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
 mix phoenix.new ex_pusher_lite --no-brunch --no-ecto
