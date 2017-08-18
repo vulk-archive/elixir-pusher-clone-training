@@ -116,23 +116,27 @@ delete app/assets/javascripts/home.coffee
 
 . .env; rails s -p $PORT -b 0.0.0.0 
 ```
-test: go to url:port and enter a message, check rails log
+Test: go to url:port and enter a message, check rails log
 
 ----------
-Lesson 3 
+Lesson 3 Create Elixir Application and call it from Rails
 ----------
 
 cd into your main training directory
 
 ### elixir
-Go to main directory (up one)
+Go to main directory (up one from your rails project)
 ```
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
 mix phoenix.new ex_pusher_lite --no-brunch --no-ecto
 cd ex_pusher_lite
+# exclude erlang, dependencies, and secrets from git
 copy .gitignore
+# upgrade phoenix, include some dependencies
 copy mix.exs
+# get dependencies
 mix do deps.get, compile
+# accept a port number from the command line
 copy dev.exs 
 
 ```
@@ -141,31 +145,43 @@ copy dev.exs
 https://hexdocs.pm/phoenix/mix_tasks.html
 
 ```
+# create an endpoint that accepts messages 
 mix phoenix.gen.json Events events --no-context --no-model --no-schema
 copy web/controller/events_controller.ex controller
+# add end point to the router
 copy web/router.ex router  
+# create a web socket to relay messages
 mix phoenix.gen.channel Room 
 copy web/channels/user_socket.ex socket
+# setup our channel with a public topic
+copy web/channels/room_channel.ex socket
 mix compile
 ```
 
 ### rails
 
 ```
-cd into your rails directory
+cd <into your rails directory>
+# update rails secrets to look for our env variable
 edit /config/secrets.yml
+# call the elixir messaging endpoint
 edit app/models/pusher_event.rb model (add net http call)
+# create a background job for sending our messages, to prevent blocking
 rails g job send_events 
 copy app/jobs/send_events_job.rb job
+# call our background job
 edit web/controller/events_controller.ex controller
 
+cd <your elixir directory>
 . .env; PORT=4503 iex -S mix phoenix.server 
+# in new session ..
+cd <your rails directory>
 . .env; rails s -p $PORT -b 0.0.0.0
 ```
-test: go to url:port and enter a message, check rails *and* elixir log
+Test: go to url:port and enter a message, check rails *and* elixir log
 
 ------------
-Lesson 4
+Lesson 4 Enable web sockets
 -----------
 ### rails
 
@@ -173,45 +189,63 @@ http://nandovieira.com/using-es2015-with-asset-pipeline-on-ruby-on-rails
 
 https://github.com/rails/sprockets/issues/156
 ```
+# Set up the asset pipeline to transpile es6 into es5
 copy app/assets/config/manifest.js
+edit app/assets/javascripts/application.js << redundant, but need this 
+# Include the phoenix javascript
 copy app/assets/javascripts/phoenix.es6
 copy app/assets/javascripts/application/boot.es6
+# Enable the websocket without authentication and start listening for messages
 copy app/assets/javascripts/application/pages/home/index.es6 
-edit app/assets/javascripts/application.js << redundant, but need this 
+# Configure babel for the transpile of es6 to es5
 copy config/initializers/babel.rb
+# Enable new sprockets for es6 transpile
 edit Gemfile <include new sprocket code> 
 bundle update
 ```
-test: go to url:port and enter a message, should receive message on the same screen with anyone connected to your url
+Test: go to url:port and enter a message, should receive message on the same screen with anyone connected to your url
 
 --------
 Lesson 5, JWT Authorization
 ---------
 ### rails
 ```
+# Create a jwt token utility
 rails g helper guardian
 copy app/helpers/guardian_helper.rb helper
+# Call elixir with a jwt token
 edit app/models/pusher_event.rb model
+# Make front end pass jwt token when establishing web socket
 edit app/assets/javascripts/application/pages/home/index.es6 <uncomment guardian code>
 ```
 ### elixir
 ```
+# Include guardian in elixir
 edit mix.exs
+# configure guardian
 edit config.exs
+# create a jwt secret
+copy dev.secret.exs 
+# import our secret
 edit dev.exs << add import config
-edit dev.secret.exs << remove repo lines
 
 mix do deps.get, compile
 
-edit router.ex router  << try adding guardian pipeline to events
+# Force message post to require a jwt token
+edit router.ex router
+# Enable guardian
 edit events_controller.ex controller
+# Enable guardian
 edit user_socket.ex socket
+# Use guardian to inspect claims for topics
 edit room_channel.ex channel 
+# Configure guardian (requirement but unused)
 copy ex_pusher_lite/lib/ex_pusher_lite/guardian_serializer.ex
-restart phoenix and rails
+# restart phoenix and rails
 ```
 test: go to url:port and enter a message, open console, should see authentication error.
 ```
+# add guardian tags, provided in guardian helper 
 edit (rails) app/views/layouts/application.html.erb template -- add guardian line
 ```
 test: go to url:port and enter a message, should receive message.
