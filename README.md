@@ -2,10 +2,10 @@
 ------------------------
 Useful comparisons
 ------------------------
-https://hexdocs.pm/phoenix/channels.html
-https://github.com/dsander/phoenix-connection-benchmark
-https://pusher.com/pricing
-https://www.digitalocean.com/pricing/
+1. https://hexdocs.pm/phoenix/channels.html
+2. https://github.com/dsander/phoenix-connection-benchmark
+3. https://pusher.com/pricing
+4. https://www.digitalocean.com/pricing/
 
 ------------------------
 Prerequisites -- Set up ubuntu
@@ -63,7 +63,7 @@ kiex use 1.4.5
 iex
 ```
 --------------- 
-Lesson 2 -- Create a legacy rails app
+Lesson 2, Create a legacy rails app
 ---------------
 
 ###### 1. Generate the rails application
@@ -121,7 +121,7 @@ delete app/assets/javascripts/home.coffee
 ###### 14. Test: go to url:port and enter a message, check rails log
 
 ----------
-Lesson 3 Create Elixir Application and call it from Rails
+Lesson 3, Create Elixir Application and call it from Rails
 ----------
 
 ### Elixir
@@ -195,7 +195,7 @@ edit web/controller/events_controller.ex controller
 ###### 9. Test: go to url:port and enter a message, check rails *and* elixir log
 
 ------------
-Lesson 4 Enable web sockets
+Lesson 4, Enable web sockets
 -----------
 ### Rails
 
