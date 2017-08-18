@@ -82,34 +82,34 @@ https://github.com/rails/sprockets-rails/issues/291
 
 bundle update
 
-### plain old ruby object for message management
+###### plain old ruby object for message management
 copy app/models/pusher_event.rb model
-### landing page
+###### landing page
 rails g controller home
 copy app/controllers/home_controller.rb controller
 rails g controller events
 copy app/controllers/events_controller.rb controller contents
-### wrapper for all html
+###### wrapper for all html
 copy views/layouts/application.html.erb template
-# form for posting
+###### form for posting
 copy app/views/home/index.html.erb template
-# sets focus
+###### sets focus
 copy app/views/events/create.js.erb template
-# styling
+###### styling
 delete app/assets/stylesheets/application.css  
 delete app/assets/stylesheets/events.scss  
 delete app/assets/stylesheets/home.css  
 copy app/assets/stylesheets/purecss.scss styles 
 copy app/assets/stylesheets/application.scss styles 
-# secrets for use later on
+###### secrets for use later on
 copy .env.example into .env 
-# dont save the secrets in git
+###### dont save the secrets in git
 copy .gitignore
-# precompile
+###### precompile
 copy pusher_lite_demo/config/initializers/assets.rb
-# secret helper
+###### secret helper
 copy pusher_lite_demo/config/initializers/pusher_lite.rb
-# router to landing page
+###### router to landing page
 copy pusher_lite_demo/config/routes.rb
 delete app/assets/javascripts/events.coffee
 delete app/assets/javascripts/home.coffee
