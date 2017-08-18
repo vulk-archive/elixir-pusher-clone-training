@@ -8,7 +8,7 @@ https://pusher.com/pricing
 https://www.digitalocean.com/pricing/
 
 ------------------------
-Prerequisites
+Prerequisites 
 ------------------------
 See https://gist.github.com/wavell/0411d52a69f03546f712b47596dd5ca4
 
@@ -18,8 +18,7 @@ Lesson 1, Setup Overview
 
 git clone git@github.com:vulk/elixir-pusher-clone-training.git
 
--- check node
--- phoenix dependency
+-- check node 
 ```
 nvm list
 nvm use v6.0.0
@@ -65,11 +64,13 @@ test:
 iex
 ```
 --------------- 
-Lesson 2
+Lesson 2 -- Create a legacy rails app
 ---------------
 
 ```
 rails new pusher_lite_demo
+cd pusher_lite_demo
+# add enviroment, background job, styling, javascript helpers, production web server
 copy gemfile
 
 
@@ -80,23 +81,35 @@ https://github.com/rails/sprockets-rails/issues/291
 ```
 
 bundle update
+
+# plain old ruby object for message management
 copy app/models/pusher_event.rb model
+# landing page
 rails g controller home
 copy app/controllers/home_controller.rb controller
 rails g controller events
 copy app/controllers/events_controller.rb controller contents
+# wrapper for all html
 copy views/layouts/application.html.erb template
+# form for posting
 copy app/views/home/index.html.erb template
-copy app/views/events/create.js.erb temmplate
+# sets focus
+copy app/views/events/create.js.erb template
+# styling
 delete app/assets/stylesheets/application.css  
 delete app/assets/stylesheets/events.scss  
 delete app/assets/stylesheets/home.css  
 copy app/assets/stylesheets/purecss.scss styles 
 copy app/assets/stylesheets/application.scss styles 
+# secrets for use later on
 copy .env.example into .env 
+# dont save the secrets in git
 copy .gitignore
+# precompile
 copy pusher_lite_demo/config/initializers/assets.rb
+# secret helper
 copy pusher_lite_demo/config/initializers/pusher_lite.rb
+# router to landing page
 copy pusher_lite_demo/config/routes.rb
 delete app/assets/javascripts/events.coffee
 delete app/assets/javascripts/home.coffee
