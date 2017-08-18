@@ -72,13 +72,17 @@ https://github.com/rails/sprockets-rails/issues/291
 
 ```
 bundle update
-
+```
 ###### 1. Plain old ruby object for message management
 copy app/models/pusher_event.rb model
 ###### 2. Landing page
+```
 rails g controller home
+```
 copy app/controllers/home_controller.rb controller
+```
 rails g controller events
+```
 copy app/controllers/events_controller.rb controller contents
 ###### 3. Wrapper for all html
 copy views/layouts/application.html.erb template
@@ -104,10 +108,10 @@ copy pusher_lite_demo/config/initializers/pusher_lite.rb
 copy pusher_lite_demo/config/routes.rb
 delete app/assets/javascripts/events.coffee
 delete app/assets/javascripts/home.coffee
-
+```
 . .env; rails s -p $PORT -b 0.0.0.0 
 ```
-Test: go to url:port and enter a message, check rails log
+##### 12. Test: go to url:port and enter a message, check rails log
 
 ----------
 Lesson 3 Create Elixir Application and call it from Rails
