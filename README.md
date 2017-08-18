@@ -65,7 +65,7 @@ Lesson 2 -- Create a legacy rails app
 rails new pusher_lite_demo
 cd pusher_lite_demo
 ```
-###### 2. add enviroment, background job, styling, javascript helpers, production web server
+###### 2. Add enviroment, background job, styling, javascript helpers, production web server
 copy gemfile
 
 ###### For issues with gemfile see
