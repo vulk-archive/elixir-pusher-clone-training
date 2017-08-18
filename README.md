@@ -82,14 +82,14 @@ https://github.com/rails/sprockets-rails/issues/291
 
 bundle update
 
-# plain old ruby object for message management
+### plain old ruby object for message management
 copy app/models/pusher_event.rb model
-# landing page
+### landing page
 rails g controller home
 copy app/controllers/home_controller.rb controller
 rails g controller events
 copy app/controllers/events_controller.rb controller contents
-# wrapper for all html
+### wrapper for all html
 copy views/layouts/application.html.erb template
 # form for posting
 copy app/views/home/index.html.erb template
