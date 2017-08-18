@@ -18,48 +18,41 @@ Lesson 1, Setup Overview
 
 git clone git@github.com:vulk/elixir-pusher-clone-training.git
 
--- check node 
+###### Check node 
 ```
 nvm list
 nvm use v6.0.0
 ```
-
--- check ruby
+###### Check ruby
 ```
 rvm list
 ```
-
--- switch version of ruby
+###### Switch version of ruby
 ```
 rvm use 2.2.3
 ```
-
--- check rails -- use rails 4.2.5
+###### Check rails -- use rails 4.2.5
 ```
-rails -v ```
-
--- check erlang
+rails -v 
+```
+###### Check erlang
 ```
 kerl list builds
 ```
-
--- switch version erlang
+###### Switch version erlang
 ```
 kerl install 18.0
 . <yourworkingdirectory>/activate
 ```
-
-check elixir
+###### Check elixir
 ```
 kiex list
 ```
-
--- switch version of elixir
+###### Switch version of elixir
 ```
 kiex use 1.4.5
 ```
-
-test:
+###### Test:
 ```
 iex
 ```
@@ -74,40 +67,40 @@ cd pusher_lite_demo
 copy gemfile
 
 ```
-### For issues with gemfile see
+###### For issues with gemfile see
 https://github.com/rails/sprockets-rails/issues/291
 
 ```
 bundle update
 
-###### 1. plain old ruby object for message management
+###### 1. Plain old ruby object for message management
 copy app/models/pusher_event.rb model
-###### 2. landing page
+###### 2. Landing page
 rails g controller home
 copy app/controllers/home_controller.rb controller
 rails g controller events
 copy app/controllers/events_controller.rb controller contents
-###### 3. wrapper for all html
+###### 3. Wrapper for all html
 copy views/layouts/application.html.erb template
-###### 4. form for posting
+###### 4. Form for posting
 copy app/views/home/index.html.erb template
-###### 5. sets focus
+###### 5. Sets focus
 copy app/views/events/create.js.erb template
-###### 6. styling
+###### 6. Styling
 delete app/assets/stylesheets/application.css  
 delete app/assets/stylesheets/events.scss  
 delete app/assets/stylesheets/home.css  
 copy app/assets/stylesheets/purecss.scss styles 
 copy app/assets/stylesheets/application.scss styles 
-###### 7. secrets for use later on
+###### 7. Secrets for use later on
 copy .env.example into .env 
-###### 8. dont save the secrets in git
+###### 8. Dont save the secrets in git
 copy .gitignore
-###### 9. precompile
+###### 9. Precompile
 copy pusher_lite_demo/config/initializers/assets.rb
-###### 10. secret helper
+###### 10. Secret helper
 copy pusher_lite_demo/config/initializers/pusher_lite.rb
-###### 11. router to landing page
+###### 11. Router to landing page
 copy pusher_lite_demo/config/routes.rb
 delete app/assets/javascripts/events.coffee
 delete app/assets/javascripts/home.coffee
