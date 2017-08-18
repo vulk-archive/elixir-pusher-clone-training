@@ -112,7 +112,7 @@ delete app/assets/javascripts/home.coffee
 ```
 . .env; rails s -p $PORT -b 0.0.0.0 
 ```
-##### 14. Test: go to url:port and enter a message, check rails log
+###### 14. Test: go to url:port and enter a message, check rails log
 
 ----------
 Lesson 3 Create Elixir Application and call it from Rails
