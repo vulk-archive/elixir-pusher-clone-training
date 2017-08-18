@@ -1,4 +1,4 @@
-# elixir-pusher-clone-training
+# Elixir Pusher Clone Training
 ------------------------
 Useful comparisons
 ------------------------
@@ -8,7 +8,7 @@ https://pusher.com/pricing
 https://www.digitalocean.com/pricing/
 
 ------------------------
-Prerequisites 
+Prerequisites -- Set up ubuntu
 ------------------------
 See https://gist.github.com/wavell/0411d52a69f03546f712b47596dd5ca4
 
@@ -18,41 +18,47 @@ Lesson 1, Setup Overview
 
 git clone git@github.com:vulk/elixir-pusher-clone-training.git
 
-###### Check node 
+###### 1. Check node 
 ```
 nvm list
 nvm use v6.0.0
 ```
-###### Check ruby
+If issues ...
+```
+ export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+ [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+###### 2. Check ruby
 ```
 rvm list
 ```
-###### Switch version of ruby
+###### 3. Switch version of ruby
 ```
 rvm use 2.2.3
 ```
-###### Check rails -- use rails 4.2.5
+###### 4. Check rails -- use rails 4.2.5
 ```
 rails -v 
 ```
-###### Check erlang
+###### 5. Check erlang
 ```
 kerl list builds
 ```
-###### Switch version erlang
+###### 6. Switch version erlang
 ```
 kerl install 18.0
 . <yourworkingdirectory>/activate
 ```
-###### Check elixir
+###### 7. Check elixir
 ```
 kiex list
 ```
-###### Switch version of elixir
+###### 8. Switch version of elixir
 ```
 kiex use 1.4.5
 ```
-###### Test:
+###### 9. Test
 ```
 iex
 ```
