@@ -11,7 +11,7 @@ Useful comparisons
 Prerequisites -- Set up ubuntu
 ------------------------
 See https://gist.github.com/wavell/0411d52a69f03546f712b47596dd5ca4
-# before you start
+### Before you start
 ###### Cd into your training directory
 ###### Start tmux so we can assist you 
 ```
