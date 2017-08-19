@@ -86,7 +86,7 @@ https://github.com/rails/sprockets-rails/issues/291
 
 ```
 bundle update
-rake rails:update:bin #to fix problems with a cloned machine
+rake rails:update:bin #to fix problems with a cloned machine -- overwrite all
 ```
 ###### 3. Plain old ruby object for message management
 copy app/models/pusher_event.rb model
