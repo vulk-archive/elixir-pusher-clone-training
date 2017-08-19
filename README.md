@@ -106,13 +106,13 @@ copy app/views/home/index.html.erb template
 ###### 7. Sets focus
 copy app/views/events/create.js.erb template
 ###### 8. Styling
-delete app/assets/stylesheets/application.css  
-delete app/assets/stylesheets/events.scss  
-delete app/assets/stylesheets/home.css  
-delete app/assets/javascripts/events.coffee
-delete app/assets/javascripts/home.coffee
-copy app/assets/stylesheets/purecss.scss styles  
-copy app/assets/stylesheets/application.scss styles 
+delete app/assets/stylesheets/application.css   
+delete app/assets/stylesheets/events.scss   
+delete app/assets/stylesheets/home.css   
+delete app/assets/javascripts/events.coffee 
+delete app/assets/javascripts/home.coffee 
+copy app/assets/stylesheets/purecss.scss styles   
+copy app/assets/stylesheets/application.scss styles  \
 
 ###### 9. Secrets for use later on
 copy .env.example into .env 
