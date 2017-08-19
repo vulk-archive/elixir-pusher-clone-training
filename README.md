@@ -277,3 +277,7 @@ edit (rails) app/views/layouts/application.html.erb template -- add guardian lin
 
 
 ### Special thanks to Fabio Akita at http://www.akitaonrails.com/ for the blog post on the pusher clone
+### Thanks also to: 
+Krista https://github.com/Rystakei
+Josh https://github.com/nupejosh
+Taylor https://github.com/taylor
