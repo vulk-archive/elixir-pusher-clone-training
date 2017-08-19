@@ -28,12 +28,12 @@ export default class Index {
       .receive("error", resp => { console.log("Unable to join", resp) })
 
     channel.on(`${pusherChannel}:msg`, data => {
-      let new_line = `<p><strong>${data.name}<strong>: ${data.message}</p>`
+      let new_line = `<div><p><strong>${data.name}<strong>: ${data.message}</p></div>`
       $(".message-receiver").append(new_line)
     })
 
     channel.on("msg", data => {
-      let new_line = `<p><strong>Broadcast to all channels</strong>: ${data.message}</p>`
+      let new_line = `<div><p><strong>Broadcast to all channels</strong>${data.message}</p></div>`
       $(".message-receiver").append(new_line)
     })
   }

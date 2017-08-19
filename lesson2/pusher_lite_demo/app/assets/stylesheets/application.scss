@@ -1,5 +1,106 @@
- @import "purecss";
+@import "purecss";
 
- .message-form, .message-receiver {
-    padding: 1em;
- }
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+
+$textAccentColor: #0074E0;
+$primaryColor: #0074E0;
+$primaryColor: #E2EFFF;
+$lightenedPrimaryColor: lighten($primaryColor, 3%);
+
+body {
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+  font-family: 'Maven Pro'
+}
+
+.message-form, .message-receiver {
+  padding: 1em;
+}
+
+.form-header {
+  color: white;
+  font-size: 24px;
+  font-weight: 300;
+  background: $textAccentColor;
+  padding: 25px 20px;
+} 
+
+.pure-form legend {
+  color: white;
+  font-size: 30px;
+  padding: 5px;
+}
+
+.pure-form input[type="text"] {
+  margin: 20px 0;
+}
+
+.message-form {
+  border-radius: 5px;
+  min-height: 500px;
+
+  form fieldset {
+    padding-left: 20px;
+    background: lighten($textAccentColor, 50%);
+    background: lighten(#F9F7F6, 2%);
+    border: solid 1px #F9F7F6;
+  }
+}
+.pure-menu-horizontal {
+  background: #2B3159;
+  background: black;
+  background: darken($textAccentColor, 10%);
+  border-bottom: solid 5px $textAccentColor;
+  padding: 10px 15px;
+  margin-bottom: 25px;
+}
+
+.pure-menu-heading {
+  font-weight: 500;
+  font-family: 'Maven Pro';
+  font-size: 20px;
+  color: $textAccentColor;
+  color: white;
+  text-transform: none;
+}
+
+.message-receiver div {
+  border: solid 1px $primaryColor;
+  background: $lightenedPrimaryColor;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: $lightenedPrimaryColor;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+  }
+
+  p {
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+
+    strong {
+      font-size: 14px;
+      color: $textAccentColor;
+      font-weight: 500;
+      display: block;
+    }
+  }
+}
+
+input[type="submit"].pure-button {
+  font-size: 18px;
+}
