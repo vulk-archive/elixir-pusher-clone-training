@@ -11,7 +11,13 @@ Useful comparisons
 Prerequisites -- Set up ubuntu
 ------------------------
 See https://gist.github.com/wavell/0411d52a69f03546f712b47596dd5ca4
-
+# before you start
+###### Cd into your training directory
+###### Start tmux so we can assist you 
+```
+tmux
+```
+###### 
 ------------------------
 Lesson 1, Setup Overview
 -------------------------
@@ -47,8 +53,8 @@ kerl list builds
 ```
 ###### 6. Switch version erlang
 ```
-kerl install 18.0
-. <yourworkingdirectory>/activate
+kerl install 18.0 18.0
+. 18.0/activate  
 ```
 ###### 7. Check elixir
 ```
@@ -66,12 +72,13 @@ iex
 Lesson 2, Create a legacy rails app
 ---------------
 
+
 ###### 1. Generate the rails application
 ```
 rails new pusher_lite_demo
 cd pusher_lite_demo
 ```
-###### 2. Add enviroment, background job, styling, javascript helpers, production web server
+###### 2. Add ruby enviroment, background job, styling, javascript helpers, production web server
 copy gemfile
 
 ###### For issues with gemfile see
@@ -79,6 +86,7 @@ https://github.com/rails/sprockets-rails/issues/291
 
 ```
 bundle update
+rake rails:update:bin #to fix problems with a cloned machine
 ```
 ###### 3. Plain old ruby object for message management
 copy app/models/pusher_event.rb model
@@ -101,6 +109,8 @@ copy app/views/events/create.js.erb template
 delete app/assets/stylesheets/application.css  
 delete app/assets/stylesheets/events.scss  
 delete app/assets/stylesheets/home.css  
+delete app/assets/javascripts/events.coffee
+delete app/assets/javascripts/home.coffee
 copy app/assets/stylesheets/purecss.scss styles 
 copy app/assets/stylesheets/application.scss styles 
 ###### 9. Secrets for use later on
@@ -113,8 +123,6 @@ copy pusher_lite_demo/config/initializers/assets.rb
 copy pusher_lite_demo/config/initializers/pusher_lite.rb
 ###### 13. Router to landing page
 copy pusher_lite_demo/config/routes.rb
-delete app/assets/javascripts/events.coffee
-delete app/assets/javascripts/home.coffee
 ```
 . .env; rails s -p $PORT -b 0.0.0.0 
 ```
@@ -185,7 +193,7 @@ edit web/controller/events_controller.ex controller
 
 ###### 6. Change into your elixir directory
 ```
-. .env; PORT=4503 iex -S mix phoenix.server 
+. .env; PORT=<yourport> iex -S mix phoenix.server 
 ```
 ###### 7. Start a new session ...
 ###### 8. Change into your rails directory
