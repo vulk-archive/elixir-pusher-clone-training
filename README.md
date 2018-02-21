@@ -275,8 +275,9 @@ edit (rails) app/views/layouts/application.html.erb template -- add guardian lin
 
 ###### 16. Test: go to url:port and enter a message, should receive message.
 
-https://youtu.be/yckhyKSW58U
+
 [![Rails/Elixir Pusher Clone](https://img.youtube.com/vi/yckhyKSW58U/0.jpg)](https://www.youtube.com/watch?v=yckhyKSW58U)
+
 
 ### Special thanks to Fabio Akita at http://www.akitaonrails.com/ for the blog post on the pusher clone
 ### Thanks also to: 
