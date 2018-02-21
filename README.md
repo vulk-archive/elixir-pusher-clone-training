@@ -22,7 +22,7 @@ tmux
 Lesson 1, Setup Overview
 -------------------------
 
-git clone git@github.com:vulk/elixir-pusher-clone-training.git
+git clone https://github.com/vulk/elixir-pusher-clone-training.git
 
 ###### 1. Check node 
 ```
