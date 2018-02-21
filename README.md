@@ -238,10 +238,10 @@ bundle update
 
 --------
 Lesson 5, JWT Authorization:
+---------
 
 https://jwt.io/
 
----------
 ### Rails
 
 
