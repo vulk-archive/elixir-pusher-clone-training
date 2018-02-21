@@ -237,7 +237,10 @@ bundle update
 ###### 6. Test: go to url:port and enter a message, should receive message on the same screen with anyone connected to your url
 
 --------
-Lesson 5, JWT Authorization: https://jwt.io/
+Lesson 5, JWT Authorization:
+
+https://jwt.io/
+
 ---------
 ### Rails
 
