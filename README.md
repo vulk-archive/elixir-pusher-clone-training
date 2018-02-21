@@ -237,11 +237,11 @@ bundle update
 ###### 6. Test: go to url:port and enter a message, should receive message on the same screen with anyone connected to your url
 
 --------
-Lesson 5, JWT Authorization
+Lesson 5, JWT Authorization: https://jwt.io/
 ---------
 ### Rails
 
-https://jwt.io/
+
 
 ###### 1. Create a jwt token utility
 rails g helper guardian
