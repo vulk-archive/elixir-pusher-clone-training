@@ -1,5 +1,7 @@
 # Elixir Pusher Clone Training
-github.com/wavell @elementwatson
+
+https://github.com/wavell @elementwatson
+
 ------------------------
 Useful comparisons
 ------------------------
