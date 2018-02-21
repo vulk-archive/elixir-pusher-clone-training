@@ -214,10 +214,14 @@ https://github.com/rails/sprockets/issues/156
 
 ###### 1. Set up the asset pipeline to transpile es6 into es5
 copy app/assets/config/manifest.js
+
 edit app/assets/javascripts/application.js << redundant, but need this 
+
 ###### 2 Include the phoenix javascript
 copy app/assets/javascripts/phoenix.es6
+
 copy app/assets/javascripts/application/boot.es6
+
 ###### 3. Enable the websocket without authentication and start listening for messages
 copy app/assets/javascripts/application/pages/home/index.es6 
 ###### 4. Configure babel for the transpile of es6 to es5
