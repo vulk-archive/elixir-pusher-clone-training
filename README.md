@@ -241,6 +241,8 @@ Lesson 5, JWT Authorization
 ---------
 ### Rails
 
+https://jwt.io/
+
 ###### 1. Create a jwt token utility
 rails g helper guardian
 copy app/helpers/guardian_helper.rb helper
