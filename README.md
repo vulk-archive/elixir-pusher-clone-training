@@ -24,6 +24,7 @@ tmux at
 ------------------------
 Lesson 1, Setup Overview
 -------------------------
+###### To follow along
 
 git clone https://github.com/vulk/elixir-pusher-clone-training.git
 
