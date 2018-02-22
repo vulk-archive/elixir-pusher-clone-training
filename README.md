@@ -113,7 +113,7 @@ copy app/views/events/create.js.erb template
 ###### 8. Styling
 delete app/assets/stylesheets/application.css   
 delete app/assets/stylesheets/events.scss   
-delete app/assets/stylesheets/home.css   
+delete app/assets/stylesheets/home.scss   
 delete app/assets/javascripts/events.coffee  
 delete app/assets/javascripts/home.coffee  
 copy app/assets/stylesheets/purecss.scss styles   
