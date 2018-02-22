@@ -195,7 +195,7 @@ rails g job send_events
 ```
 copy app/jobs/send_events_job.rb job
 ###### 5. Call our background job
-edit web/controller/events_controller.ex controller
+edit app/controllers/events_controller.rb controller
 
 ###### 6. Change into your elixir directory
 ```
