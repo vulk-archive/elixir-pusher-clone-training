@@ -58,6 +58,7 @@ kerl list builds
 ```
 kerl install 18.0 18.0
 . 18.0/activate  
+# For issues with previously installed erlangs see: https://github.com/kerl/kerl/issues/236
 ```
 ###### 7. Check elixir
 ```
